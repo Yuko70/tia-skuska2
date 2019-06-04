@@ -184,7 +184,7 @@ function update(){
     ctxG.rect(-25/2, -75/2, 25, 75); 
     ctxG.fillStyle = "#FFFFFF";
     ctxG.fill();
-    // ctxG.stroke();
+    // ctxG.stroke(); 
   ctxG.restore();
 
 
@@ -201,7 +201,8 @@ for (let i = 0; i < enemyarr.length; i++) {
   ctxG.fillStyle = "#FFFFFF";
   ctxG.fill();
   // ctxG.stroke();
-  enemyarr[i].y = +1;
+  enemyarr[i].y += 1;
+  // console.log(enemyarr[i]);
 
 }
 
