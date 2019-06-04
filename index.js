@@ -85,8 +85,8 @@ function pressedKey(ev) {
 function releasedKey(ev) {
   let event = window.event ? window.event : ev;
   if (event.keyCode == '32') {
-    // console.log("space");
-    createEnemy();
+    // console.log("space"); 
+    createBullet();
   }
   else if (event.keyCode == '37') {
     // console.log("left"); 
@@ -153,10 +153,10 @@ function createBullet() {
   bulletarr.push({
         sx : 400 + 25 /2,
         sy : 520 + 75 /2,
-        cx : Math.cos(angle * Math.PI / 180),
-        cy : Math.sin(angle * Math.PI / 180)
-
+        cx : Math.sin(gA * Math.PI / -180),
+        cy : Math.cos(gA * Math.PI / 180)
         });
+  console.log(bulletarr);
 }
 
 
@@ -197,19 +197,41 @@ function update(){
     createEnemy();
   }
   // painting enemies, moving enemies
-for (let i = 0; i < enemyarr.length; i++) {
-  ctxG.beginPath();
-  ctxG.rect(enemyarr[i].x, enemyarr[i].y, 25, 25); 
-  ctxG.fillStyle = "#FFFFFF";
-  ctxG.fill();
-  // ctxG.stroke();
-  enemyarr[i].y += 1;
-  // console.log(enemyarr[i]); 
-  if (enemyarr[i].y >= 525) {
-    lives--;
+  for (let i = 0; i < enemyarr.length; i++) {
+    ctxG.beginPath();
+    ctxG.rect(enemyarr[i].x, enemyarr[i].y, 25, 25); 
+    ctxG.fillStyle = "#FFFFFF";
+    ctxG.fill();
+    enemyarr[i].y += 1;
+    if (enemyarr[i].y >= 525) {
+      lives--;
+    }
   }
 
-}
+  // bullets  
+
+    for (let j = 0; j < bulletarr.length; j++) {
+      ctxG.beginPath();
+      ctxG.rect(bulletarr[j].sx, bulletarr[j].sy, 25, 25); 
+      bulletarr[j].sx -= bulletarr[j].cx;
+      bulletarr[j].sy -= bulletarr[j].cy;
+      ctxG.fillStyle = "#FF0000";
+      ctxG.fill();
+    }
+  
+
+  //colizie
+  for (let ii = 0; ii < enemyarr.length; ii++) {
+      for (let j = 0; j < bulletarr.length; j++) {
+        if ( ((enemyarr[i].x - bulletarr[j].sx) < 25) && ((enemyarr[i].y - bulletarr[j].sy) < 25) ) {
+          console.log("mame HIiiT");
+
+        }
+
+      }
+
+  }
+  
 
 
 
