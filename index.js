@@ -141,7 +141,7 @@ function ulives() {
 function createEnemy() {
   let w = 25;
   let h = 25
-  let eX = Math.floor(Math.random() * (800-w/2)) + w/2; 
+  let eX = Math.floor(Math.random() * (800-w/2)) ; 
   let eY = h/2;
 
   enemyarr.push({
