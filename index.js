@@ -22,10 +22,9 @@ let sdP4 = document.getElementById("b4");
 let sdP5 = document.getElementById("b5");
 
 
-
 let score = 0;
 
-
+// GUUN
 let gX = 50;
 let gY = 350;
 let gA = 0;
@@ -37,13 +36,14 @@ let fly = new Audio();
 let boom = new Audio();
 
 document.onkeydown = pressedKey;
+document.onkeyup = releasedKey;
 
 
 drawBG();
 ready();
 
 function drawBG() {
-  
+
   let imageBG = new Image();
   imageBG.src = 'https://raw.githubusercontent.com/yuko70/tia-skuska2/master/spacebg.jpg';
   ctx.drawImage(imageBG, 0, 0, canvasbg.width, canvasbg.height);
@@ -57,26 +57,38 @@ function ready() {
 function pressedKey(ev) {
   let event = window.event ? window.event : ev;
 
-  if (event.keyCode == '38') {
-    // console.log("up"); 
-    if (bY >= 10) {
-      bY -= 10;
-      sdWing.play();
-    }
+  if (event.keyCode == '37') {
+    console.log("left"); 
+    // if (bY >= 10) {
+    //   bY -= 10;
+    //   sdWing.play();
+    // }
   }
-  else if (event.keyCode == '40') {
-    // console.log("down"); 
-    if (bY <= 700-36) {
-      bY += 10;
-      sdSwoosh.play();
-    }
+  else if (event.keyCode == '39') {
+    console.log("right"); 
+    // if (bY <= 700-36) {
+    //   bY += 10;
+    //   sdSwoosh.play();
+    // }
   }
   else if (event.keyCode == '13' && running === false) {
-    // console.log("enter");
-    drawBG();
-    start();
+    console.log("enter");
+    // drawBG();
+    // start();
   }
-  
+
+}
+
+function releasedKey(ev) {
+  let event = window.event ? window.event : ev;
+  if (event.keyCode == '32') {
+    console.log("space"); 
+    // if (bY >= 10) {
+    //   bY -= 10;
+    //   sdWing.play();
+    // }
+  }
+
 }
 
 function start() {
@@ -183,6 +195,7 @@ function update(){
 
 
   ctxG.font = "30px Arial";
+  ctxG.fillStyle = "white";
   ctxG.fillText("SCORE: " + score, 10, 35);
   ctxG.drawImage(bird, bX, bY);
 
