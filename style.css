@@ -7,7 +7,7 @@ h1, h2 {
     display: block;
     /* margin: 0 auto; */
     z-index: 0;
-    left: 35%
+    left: 3%
 }
 
 
@@ -16,5 +16,5 @@ h1, h2 {
     display: block;
     /* margin: 0 auto; */
     z-index: 1;
-    left: 35%
+    left: 30%
 }
