@@ -221,9 +221,13 @@ function update(){
   
 
   //colizie
-  for (let ii = 0; ii < enemyarr.length; ii++) {
+  for (let i = 0; i < enemyarr.length; i++) {
       for (let j = 0; j < bulletarr.length; j++) {
-        if ( ((enemyarr[i].x - bulletarr[j].sx) < 25) && ((enemyarr[i].y - bulletarr[j].sy) < 25) ) {
+        if ( (enemyarr[i].x < bulletarr[j].sx + 25) &&
+             (enemyarr[i].y < bulletarr[j].sy + 25) &&
+             (enemyarr[i].x + 25 > bulletarr[j].sx) &&
+             (enemyarr[i].y + 25 > bulletarr[j].sy) ) {
+          
           console.log("mame HIiiT");
 
         }
@@ -231,7 +235,7 @@ function update(){
       }
 
   }
-  
+
 
 
 
