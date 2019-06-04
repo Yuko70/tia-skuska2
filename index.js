@@ -9,17 +9,22 @@ let ctx = canvasbg.getContext("2d");
 
 
 let sdDie = document.getElementById("c1");
-let sdH1 = document.getElementById("a1");
-let sdH2 = document.getElementById("a2");
-let sdH3 = document.getElementById("a3");
-let sdH4 = document.getElementById("a4");
-let sdH5 = document.getElementById("a5");
+let sdHIndex = 0;
+let sdPIndex = 0;
 
-let sdP1 = document.getElementById("b1");
-let sdP2 = document.getElementById("b2");
-let sdP3 = document.getElementById("b3");
-let sdP4 = document.getElementById("b4");
-let sdP5 = document.getElementById("b5");
+function playHit() {
+  let sound = document.getElementById("a" + sdHIndex);
+  sdHIndex += 1;
+  if (sdHIndex > 5) sdHIndex = 1;
+  sound.play();
+}
+
+function playPoint() {
+  let sound = document.getElementById("b" + sdPIndex);
+  sdPIndex += 1;
+  if (sdPIndex > 5) sdPIndex = 1;
+  sound.play();
+}
 
 
 let score = 0;
@@ -239,6 +244,8 @@ function update(){
           enemyarr.splice(i, 1);
           bulletarr.splice(j, 1);
           score++;
+          playHit();
+          playPoint();
         }
       }
   }
