@@ -142,6 +142,19 @@ function update(){
   }
 
   ctxG.clearRect(0, 0, cvsgame.width, cvsgame.height);
+
+
+  ctxG.save();
+  ctxG.beginPath();
+  ctxG.lineWidth = "1";
+  ctxG.fillStyle = "#FFFFFF";
+  ctx.translate( 425/2, 575/2 );
+  // ctxG.strokeStyle = "white";
+  ctxG.rotate(20 * Math.PI / 180);
+  ctxG.fillRect(-400/2, -525/2, 25, 50);
+
+  ctxG.stroke();
+  ctxG.restore();
   
 
 
