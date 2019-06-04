@@ -1,3 +1,20 @@
 h1, h2 {
   font-family: Lato;
 }
+
+#bg {
+    position: absolute;
+    display: block;
+    /* margin: 0 auto; */
+    z-index: 0;
+    left: 35%
+}
+
+
+#game {
+    position: absolute;
+    display: block;
+    /* margin: 0 auto; */
+    z-index: 1;
+    left: 35%
+}
