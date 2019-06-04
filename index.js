@@ -9,8 +9,8 @@ let ctx = canvasbg.getContext("2d");
 
 
 let sdDie = document.getElementById("c1");
-let sdHIndex = 0;
-let sdPIndex = 0;
+let sdHIndex = 1;
+let sdPIndex = 1;
 
 function playHit() {
   let sound = document.getElementById("a" + sdHIndex);
@@ -249,7 +249,7 @@ function update(){
         }
       }
   }
-
+ 
 
 
 
