@@ -23,6 +23,7 @@ let sdP5 = document.getElementById("b5");
 
 
 let score = 0;
+let lives = 1;
 
 // GUUN
 let gX = 50;
@@ -72,9 +73,9 @@ function pressedKey(ev) {
     // }
   }
   else if (event.keyCode == '13' && running === false) {
-    console.log("enter");
-    // drawBG();
-    // start();
+    // console.log("enter"); 
+    drawBG();
+    start();
   }
 
 }
@@ -124,8 +125,6 @@ function ulives() {
 
 
 let tik = 0;
-let collide = false;
-
 let pipearr = [];
 let addscore = false;
 
@@ -144,7 +143,6 @@ function update(){
   ctxG.font = "30px Arial";
   ctxG.fillStyle = "white";
   ctxG.fillText("SCORE: " + score, 10, 35);
-  ctxG.drawImage(bird, bX, bY);
 
   ulives();
 
