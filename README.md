@@ -1,3 +1,3 @@
-# js-k8qdu3
+# tia-js-bird
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/tia-js-bird)
