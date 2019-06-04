@@ -10,19 +10,25 @@ let ctx = canvasbg.getContext("2d");
 
 let sdDie = document.getElementById("c1");
 let sdH1 = document.getElementById("a1");
-let sdH1 = document.getElementById("a2");
-let sdH1 = document.getElementById("a3");
-let sdH1 = document.getElementById("a4");
-let sdH1 = document.getElementById("a");
+let sdH2 = document.getElementById("a2");
+let sdH3 = document.getElementById("a3");
+let sdH4 = document.getElementById("a4");
+let sdH5 = document.getElementById("a5");
+
+let sdP1 = document.getElementById("b1");
+let sdP2 = document.getElementById("b2");
+let sdP3 = document.getElementById("b3");
+let sdP4 = document.getElementById("b4");
+let sdP5 = document.getElementById("b5");
 
 
 
 let score = 0;
-let space = 100;
-let lives = 3;
 
-let bX = 50;
-let bY = 350; 
+
+let gX = 50;
+let gY = 350;
+let gA = 0;
 
 let running = false;
 let timer = 0;
@@ -31,6 +37,7 @@ let fly = new Audio();
 let boom = new Audio();
 
 document.onkeydown = pressedKey;
+
 
 drawBG();
 ready();
@@ -69,6 +76,7 @@ function pressedKey(ev) {
     drawBG();
     start();
   }
+  
 }
 
 function start() {
