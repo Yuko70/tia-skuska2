@@ -119,6 +119,8 @@ function start() {
   ctx.lineWidth = 3;
   ctx.strokeStyle = "white";
   ctx.stroke(); 
+  enemyarr = [];
+  bulletarr = [];
   createEnemy();
 }
 
@@ -167,7 +169,7 @@ let enemyator = 0;
 
 
 function update(){
-  if (new Date().getTime() - timer > 80) {
+  if (new Date().getTime() - timer > 100) {
     timer = new Date().getTime();
     tik += 1;
     enemyator++;
@@ -202,7 +204,10 @@ for (let i = 0; i < enemyarr.length; i++) {
   ctxG.fill();
   // ctxG.stroke();
   enemyarr[i].y += 1;
-  // console.log(enemyarr[i]);
+  // console.log(enemyarr[i]); 
+  if (enemyarr[i].y >= 525) {
+    lives--;
+  }
 
 }
 
