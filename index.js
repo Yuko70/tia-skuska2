@@ -45,6 +45,7 @@ let tik = 0;
 let enemyarr = [];
 let bulletarr = [];
 let addscore = false;
+let speed = 2;
 
 
 
@@ -121,6 +122,8 @@ function start() {
   ctx.stroke(); 
   enemyarr = [];
   bulletarr = [];
+  enemyindex = [];
+  bulletindex = [];
   createEnemy();
 }
 
@@ -167,6 +170,8 @@ let enemyarr = [];
 let addscore = false;
 let enemyator = 0;
 
+let enemyindex = [];
+let bulletindex = [];
 
 function update(){
   if (new Date().getTime() - timer > 100) {
@@ -213,14 +218,14 @@ function update(){
     for (let j = 0; j < bulletarr.length; j++) {
       ctxG.beginPath();
       ctxG.rect(bulletarr[j].sx, bulletarr[j].sy, 25, 25); 
-      bulletarr[j].sx -= bulletarr[j].cx;
-      bulletarr[j].sy -= bulletarr[j].cy;
+      bulletarr[j].sx -= bulletarr[j].cx * speed;
+      bulletarr[j].sy -= bulletarr[j].cy * speed;
       ctxG.fillStyle = "#FF0000";
       ctxG.fill();
     }
   
 
-  //colizie
+  //kolizie
   for (let i = 0; i < enemyarr.length; i++) {
       for (let j = 0; j < bulletarr.length; j++) {
         if ( (enemyarr[i].x < bulletarr[j].sx + 25) &&
@@ -228,12 +233,14 @@ function update(){
              (enemyarr[i].x + 25 > bulletarr[j].sx) &&
              (enemyarr[i].y + 25 > bulletarr[j].sy) ) {
           
-          console.log("mame HIiiT");
-
+          // console.log("mame HIiiT");
+          // enemyindex.push(i);
+          // bulletindex.push(j);
+          enemyarr.splice(i, 1);
+          bulletarr.splice(j, 1);
+          score++;
         }
-
       }
-
   }
 
 
