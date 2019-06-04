@@ -43,7 +43,6 @@ drawBG();
 ready();
 
 function drawBG() {
-
   let imageBG = new Image();
   imageBG.src = 'https://raw.githubusercontent.com/yuko70/tia-skuska2/master/spacebg.jpg';
   ctx.drawImage(imageBG, 0, 0, canvasbg.width, canvasbg.height);
@@ -51,7 +50,8 @@ function drawBG() {
 
 function ready() {
   ctx.font = "30px Arial";
-  ctx.fillText("Press Enter to start", 80, 350); 
+  ctx.fillStyle = "white";
+  ctx.fillText("Press Enter to start", 300, 300); 
 }
 
 function pressedKey(ev) {
@@ -103,19 +103,12 @@ function start() {
   };
   timer = 0;
   lives = 3;
-  bX = 50;
-  bY = 350; 
+  gA = 0;
   addscore = false;
 }
 
 function ulives() {
 
-  let xliv = 280;
-  let yliv = 10;
-  for (let i = 0; i < lives; i++) {
-    ctxG.drawImage(bird, xliv, yliv);
-    xliv += 40;
-  }
   if (lives === 0) {
     sdDie.play();
     running = false;
@@ -136,62 +129,16 @@ let collide = false;
 let pipearr = [];
 let addscore = false;
 
+
 function update(){
   if (new Date().getTime() - timer > 80) {
     timer = new Date().getTime();
     tik += 1;
-    // console.log(tik);
   }
 
   ctxG.clearRect(0, 0, cvsgame.width, cvsgame.height);
   
 
-  for (let i = 0; i < pipearr.length; i++) {
-
-    if (pipearr[i].x === -53) {
-      pipearr.shift();
-    }
-
-    // void ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);  
-    ctxG.drawImage(pipeUp, 0, 0, 52, 500, pipearr[i].x, -500+pipearr[i].y, 52, 500);
-    ctxG.drawImage(pipeMiddle, 0, 0, 52, 200, pipearr[i].x, pipearr[i].y + space, 52, 200);
-    ctxG.drawImage(pipeDown, 0, 0, 52, 500, pipearr[i].x, pipearr[i].y + space +200+ space, 52, 500);
-
-    pipearr[i].x--;
-
-    if (pipearr[i].x === 200) {
-      pipearr.push({
-        x : 400,
-        y : Math.floor(Math.random() * 200) + 10  
-        });
-    }
-
-
-    // colisions
-    if (bX + 35 >= pipearr[i].x && 
-        bX <= pipearr[i].x + 50 && 
-       (bY <= pipearr[i].y || (bY >= pipearr[i].y + space && bY <= pipearr[i].y + space + 200) || bY >= pipearr[i].y + space + 200 + space-25) && collide === false 
-       ) {
-         collide = true;
-         lives--;
-           sdHit.play();
-    }
-    else {
-      if (bX >= pipearr[i].x+52 ) {
-        collide = false;
-      }
-      if (bX >= pipearr[i].x+52 && bX <= pipearr[i].x+53 && addscore === false && collide !== true) {
-        score += 5;
-        addscore = true;
-      }
-
-      if (bX >= pipearr[i].x+53) {
-        addscore = false;
-      }
-
-    }
-
-  }
 
 
   ctxG.font = "30px Arial";
