@@ -158,6 +158,7 @@ function createEnemy() {
 }
 
 function createBullet() {
+  playHit();
   bulletarr.push({
         sx : 400 + 25 /2,
         sy : 520 + 75 /2,
@@ -244,7 +245,7 @@ function update(){
           enemyarr.splice(i, 1);
           bulletarr.splice(j, 1);
           score++;
-          playHit();
+
           playPoint();
         }
       }
