@@ -29,6 +29,7 @@ let lives = 1;
 let gX = 50;
 let gY = 350;
 let gA = 0;
+let angle = 0;
 
 let running = false;
 let timer = 0;
@@ -38,6 +39,13 @@ let boom = new Audio();
 
 document.onkeydown = pressedKey;
 document.onkeyup = releasedKey;
+
+
+let tik = 0;
+let enemyarr = [];
+let bulletarr = [];
+let addscore = false;
+
 
 
 drawBG();
@@ -59,18 +67,12 @@ function pressedKey(ev) {
   let event = window.event ? window.event : ev;
 
   if (event.keyCode == '37') {
-    console.log("left"); 
-    // if (bY >= 10) {
-    //   bY -= 10;
-    //   sdWing.play();
-    // }
+    // console.log("left"); 
+    angle = -2;
   }
   else if (event.keyCode == '39') {
-    console.log("right"); 
-    // if (bY <= 700-36) {
-    //   bY += 10;
-    //   sdSwoosh.play();
-    // }
+    // console.log("right"); 
+    angle = 2;
   }
   else if (event.keyCode == '13' && running === false) {
     // console.log("enter"); 
@@ -83,11 +85,16 @@ function pressedKey(ev) {
 function releasedKey(ev) {
   let event = window.event ? window.event : ev;
   if (event.keyCode == '32') {
-    console.log("space"); 
-    // if (bY >= 10) {
-    //   bY -= 10;
-    //   sdWing.play();
-    // }
+    // console.log("space");
+    createEnemy();
+  }
+  else if (event.keyCode == '37') {
+    // console.log("left"); 
+    angle = 0;
+  }
+  else if (event.keyCode == '39') {
+    // console.log("right"); 
+    angle = 0;
   }
 
 }
@@ -97,11 +104,11 @@ function start() {
   timer = new Date().getTime();
   score = 0;
   requestAnimationFrame(update);
-  pipearr = [];
-  pipearr[0] = {
-      x : 400,
-      y : 200
-  };
+  // pipearr = [];
+  // pipearr[0] = {
+  //     x : 400,
+  //     y : 200
+  // };
   timer = 0;
   lives = 3;
   gA = 0;
@@ -127,11 +134,33 @@ function ulives() {
 }
 
 
+function createEnemy() {
+  let w = 25;
+  let h = 25
+  let eX = Math.floor(Math.random() * (800-w/2)) + w/2; 
+  let eY = h/2;
+
+  enemyarr.push({
+        x : eX,
+        y : eY
+        });
+}
+
+function createBullet() {
+  bulletarr.push({
+        sx : 400 + 25 /2,
+        sy : 520 + 75 /2,
+        cx : Math.cos(angle * Math.PI / 180),
+        cy : Math.sin(angle * Math.PI / 180)
+
+        });
+}
+
 
 
 
 let tik = 0;
-let pipearr = [];
+let enemyarr = [];
 let addscore = false;
 
 
@@ -143,19 +172,25 @@ function update(){
 
   ctxG.clearRect(0, 0, cvsgame.width, cvsgame.height);
 
+  gA += angle;
 
   ctxG.save();
-  ctxG.beginPath();
-  ctxG.lineWidth = "1";
-  ctxG.fillStyle = "#FFFFFF";
-  ctx.translate( 425/2, 575/2 );
-  // ctxG.strokeStyle = "white";
-  ctxG.rotate(20 * Math.PI / 180);
-  ctxG.fillRect(-400/2, -525/2, 25, 50);
-
-  ctxG.stroke();
+    ctxG.beginPath();
+    ctxG.translate( 400 + 25 /2, 520 + 75 /2);
+    ctxG.rotate(gA * Math.PI / 180);
+    ctxG.rect(-25/2, -75/2, 25, 75); 
+    ctxG.fillStyle = "#FFFFFF";
+    ctxG.fill();
+    // ctxG.stroke();
   ctxG.restore();
-  
+
+
+  // create enemies
+  if (new Date().getTime() - timer > 1000) {
+    console.log("create enemy");
+  }
+
+
 
 
 
