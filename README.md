@@ -1,3 +1,3 @@
-# tia-js-bird
+# tia-skuska2
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/tia-js-bird)
+[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/tia-skuska2)
