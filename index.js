@@ -52,8 +52,6 @@ let bulletarr = [];
 let addscore = false;
 let speed = 2;
 
-
-
 drawBG();
 ready();
 
@@ -110,11 +108,7 @@ function start() {
   timer = new Date().getTime();
   score = 0;
   requestAnimationFrame(update);
-  // pipearr = [];
-  // pipearr[0] = {
-  //     x : 400,
-  //     y : 200
-  // };
+
   timer = 0;
   lives = 3;
   gA = 0;
@@ -133,7 +127,6 @@ function start() {
 }
 
 function ulives() {
-
   if (lives === 0) {
     sdDie.play();
     running = false;
@@ -168,9 +161,6 @@ function createBullet() {
   console.log(bulletarr);
 }
 
-
-
-
 let tik = 0;
 let enemyarr = [];
 let addscore = false;
@@ -197,13 +187,10 @@ function update(){
     ctxG.rect(-25/2, -75/2, 25, 75); 
     ctxG.fillStyle = "#FFFFFF";
     ctxG.fill();
-    // ctxG.stroke(); 
   ctxG.restore();
-
 
   // create enemies
   if (enemyator > 12) {
-    // console.log("create enemy");
     enemyator = 0;
     createEnemy();
   }
@@ -251,12 +238,6 @@ function update(){
       }
   }
  
-
-
-
-
-
-
   ctxG.font = "30px Arial";
   ctxG.fillStyle = "white";
   ctxG.fillText("SCORE: " + score, 10, 35);
