@@ -106,6 +106,12 @@ function start() {
   lives = 3;
   gA = 0;
   addscore = false;
+  ctx.beginPath();
+  ctx.moveTo(0, 550);
+  ctx.lineTo(800, 550);
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = "white";
+  ctx.stroke(); 
 }
 
 function ulives() {
