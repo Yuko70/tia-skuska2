@@ -7,22 +7,13 @@ let ctxG = cvsgame.getContext("2d");
 let canvasbg = document.getElementById("bg");
 let ctx = canvasbg.getContext("2d");
 
-let bird = new Image();
-let fg = new Image();
-let pipeUp = new Image();
-let pipeDown = new Image();
-let pipeMiddle= new Image();
 
-
-bird.src = "https://raw.githubusercontent.com/yuko70/tia-js-skuska/master/bird.png";
-pipeUp.src = "https://raw.githubusercontent.com/yuko70/tia-js-skuska/master/pipeUp.png";
-pipeDown.src = "https://raw.githubusercontent.com/yuko70/tia-js-skuska/master/pipeDown.png";
-pipeMiddle.src = "https://raw.githubusercontent.com/yuko70/tia-js-skuska/master/pipeMiddle.png";
-
-let sdDie = document.getElementById("s1");
-let sdWing = document.getElementById("s5");
-let sdSwoosh = document.getElementById("s4");
-let sdHit = document.getElementById("s2");
+let sdDie = document.getElementById("c1");
+let sdH1 = document.getElementById("a1");
+let sdH1 = document.getElementById("a2");
+let sdH1 = document.getElementById("a3");
+let sdH1 = document.getElementById("a4");
+let sdH1 = document.getElementById("a");
 
 
 
