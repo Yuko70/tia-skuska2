@@ -1,6 +1,6 @@
 // Import stylesheets
 import './style.css';
-
+ 
 let cvsgame = document.getElementById("game");
 let ctxG = cvsgame.getContext("2d");
 
