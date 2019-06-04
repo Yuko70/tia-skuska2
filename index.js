@@ -119,6 +119,7 @@ function start() {
   ctx.lineWidth = 3;
   ctx.strokeStyle = "white";
   ctx.stroke(); 
+  createEnemy();
 }
 
 function ulives() {
@@ -162,12 +163,14 @@ function createBullet() {
 let tik = 0;
 let enemyarr = [];
 let addscore = false;
+let enemyator = 0;
 
 
 function update(){
   if (new Date().getTime() - timer > 80) {
     timer = new Date().getTime();
     tik += 1;
+    enemyator++;
   }
 
   ctxG.clearRect(0, 0, cvsgame.width, cvsgame.height);
@@ -186,9 +189,22 @@ function update(){
 
 
   // create enemies
-  if (new Date().getTime() - timer > 1000) {
-    console.log("create enemy");
+  if (enemyator > 12) {
+    // console.log("create enemy");
+    enemyator = 0;
+    createEnemy();
   }
+  // painting enemies, moving enemies
+for (let i = 0; i < enemyarr.length; i++) {
+  ctxG.beginPath();
+  ctxG.rect(enemyarr[i].x, enemyarr[i].y, 25, 25); 
+  ctxG.fillStyle = "#FFFFFF";
+  ctxG.fill();
+  // ctxG.stroke();
+  enemyarr[i].y = +1;
+
+}
+
 
 
 
